@@ -36,65 +36,40 @@
             font-size: 2.5rem;
             transition: transform 1s ease-in-out;
             z-index: 1000;
+            overflow: hidden;
         }
         .swipe-up-text {
             font-size: 1.5rem;
             margin-top: 10px;
-            animation: bounce 2s infinite;
         }
-        
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            animation: fadeIn 2s ease-in-out;
-        }
-        p {
+        .floating-words {
+            position: absolute;
             font-size: 1.2rem;
-            max-width: 90%;
-            margin: 20px auto;
-            animation: fadeInUp 2s ease-in-out;
+            color: white;
+            opacity: 0.7;
+            animation: float 5s infinite alternate ease-in-out;
         }
-        .swiper-container {
-            width: 90%;
-            margin: 20px auto;
-        }
-        .swiper-slide img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .swiper-container {
-                width: 95%;
-            }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
     <!-- Intro Screen -->
     <div class="intro-screen" id="introScreen">
-        <div>Happy Valentine ❤️</div>
+        <div>Happy Valentine My Jollof Rice❤️</div>
         <div class="swipe-up-text">Swipe up to continue</div>
+        <div class="floating-words" style="top: 10%; left: 20%;">Wifey 💖</div>
+        <div class="floating-words" style="top: 30%; left: 60%;">Dream girl ✨</div>
+        <div class="floating-words" style="top: 50%; left: 10%;">Honey 🍯</div>
+        <div class="floating-words" style="top: 70%; left: 80%;">Pumpkin 🎃</div>
+        <div class="floating-words" style="top: 40%; left: 50%;">My heart ❤️</div>
+        <div class="floating-words" style="top: 20%; left: 75%;">My world 🌍</div>
+        <div class="floating-words" style="top: 60%; left: 30%;">Shawty 💃</div>
+        <div class="floating-words" style="top: 85%; left: 50%;">Bae 😘</div>
+        <div class="floating-words" style="top: 15%; left: 40%;">Soulmate 💑</div>
+        <div class="floating-words" style="top: 55%; left: 70%;">Queen 👑</div>
     </div>
     
     <h1>To My Jollof Rice ❤️</h1>
@@ -146,6 +121,7 @@
             audio.play();
         }
 
+        // Swipe up event to remove intro screen
         document.addEventListener("touchmove", function(event) {
             var introScreen = document.getElementById("introScreen");
             introScreen.style.transform = "translateY(-100%)";
